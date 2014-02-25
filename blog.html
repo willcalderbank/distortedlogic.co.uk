@@ -1,0 +1,16 @@
+---
+layout: blog-base
+title: Blog
+---
+{% for post in site.categories.blog %}
+  <article>
+    <h3><a href="{{ site.data.settings.base_url }}{{ post.url }}">{{ post.title }}</a></h3>
+    <h6><small>Written by William Calderbank on {{ post.date }}.</small></h6>
+    {{ post.content | truncatewords: post.truncate}}
+    <div class="row">
+      <a href="{{ site.data.settings.base_url }}{{ post.url }}" class="right">Read more →</a>
+    </div>
+    <hr />
+  </article>
+{% endfor %}
+

@@ -1,0 +1,106 @@
+---
+layout: blog
+title:  "Hosting on S3"
+date:   2014-02-20 16:55:27
+categories: blog
+---
+<div class="row">
+  <div class="large-6 columns">
+    <p>
+      Finding the correct webhost to suit your needs is a nightmare, so many companies offering so many different plans at so many different prices. Honest reviews are hard to come by and often you find problems with the service after its to late.
+    </p>
+    <p>
+      Many of the cheaper hosting providers offer plans at a very tempting price but the cheap price normally comes as a tradeoff with reliablity. With its inexpensive storage, "99.99%" durablty over a given year and performance why wouldnt you host your website on Amazons S3
+    </p>
+  </div>
+  <div class="large-6 columns">
+    <a class="th" href="http://aws.amazon.com/what-is-cloud-computing"><img src="http://awsmedia.s3.amazonaws.com/AWS_Logo_PoweredBy_300px.png" alt="Powered by AWS Cloud Computing" style="width: 400px;"></a>
+  </div>
+</div>
+
+<p>
+  Of course S3 also comes with its downside. S3 servers static files, so no databases or hosted CMS can be used. But combined with an 'offline' CMS such as <a href="http://jekyllrb.com/">Jekyll</a> for static sites, in my opinion, nothing beats it.
+</p>
+<p>
+  This post attempts to outline how to host your site on S3.
+</p>
+
+<h4><strong>Setting up the bucket</strong></h4>
+<p>
+  In S3 a <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html">bucket</a> can be looked at as a root folder, that is its a top level folder that holds a collection of files with a globally unique name which is replaciated across the S3 service.
+</p>
+<p>
+  Creating a bucket is fairly straight foward, once you've logged into the S3 managment screen simply click 'create bucket'. Bucket names have to be unique across the whole of S3, so I suggest just calling it your domain name. The region option is where the bucket will be located, I chose Ireland as its one of the cheaper locations and is located near me and the majority of this websites visitors. You can read about the different regions <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/LocationSelection.html">here</a>. Click create, dont worry about 'setting up logging' this is a service amazon provides which write the access logs to a secondary bucket.
+</p>
+<div class="row">
+  <div class="small-6 large-centered columns bottom-margin">
+    <img src="{{ site.data.settings.base_url }}images/s3_hosting/step1.png" />
+  </div>
+</div>
+
+<h4><strong>Uploading your site</strong></h4>
+<p>
+  Uploading your site is as easy as creating the bucket, click on the bucket you just created and click the big 'Add to bucket' button. Then click 'Set Details'.
+</p>
+<div class="row">
+  <div class="small-6 large-centered columns bottom-margin">
+    <img src="{{ site.data.settings.base_url }}images/s3_hosting/step2.png" />
+  </div>
+</div>
+<p>
+  At this point you can choose to store these files using in the <a href='https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingRRS.html'>'Reduced Redunacy Storage'</a> which lowers the durablity of the objects you store in S3 down to 99.99%, that is if you store 10000 objects, you can expect that 1 will be lost in a given year. In return for lowing the durablity amazon lowers the cost. At the time of writting the reduced reduncay storage costs  $0.068/GB in the Ireland region, $0.017 less than the standard hosting. In my case I think that this lower cost is worth lowing the durablity. Click 'Set permissions'.
+</p>
+<div class="row">
+  <div class="small-6 large-centered columns bottom-margin">
+    <img src="{{ site.data.settings.base_url }}images/s3_hosting/step3.png" />
+  </div>
+</div>
+<p>
+  By default the bucket is private (thankfully!) but as we are using it to host a website we need everyone to have read permission on all files. To do this check the 'Make everything public' option then 'Start Upload'.
+</p>
+<div class="row">
+  <div class="small-6 large-centered columns bottom-margin">
+    <img src="{{ site.data.settings.base_url }}images/s3_hosting/step4.png" />
+  </div>
+</div>
+
+<h4><strong>Enable web hosting</strong></h4>
+<p>
+  Now everything is uploaded we can tell S3 that we want the bucket to be used as a static website with an index and error page. This couldn't be easier. Click on the big properties button, expand the 'Static Website Hosting' section. Select the 'Enable website hosting' option. Enter the index of your site and an error page, this will be served if there is a problem (on anything other than a 200) click save. Your site is now available at the URL on that page.
+<p>
+<div class="row">
+  <div class="small-6 large-centered columns bottom-margin">
+    <img src="{{ site.data.settings.base_url }}images/s3_hosting/step5.png" />
+  </div>
+</div>
+<p>
+  You also have to create an empty bucket to handle the www subdomain. For this just create an empty bucket in the same region, under the 'Static Website Hosting' section instead select 'Redirect all requests to another host name' an enter the previous buckets URL in that field.
+</p>
+
+<h4><strong>Route 53</strong></h4>
+<p>
+Currently your website is located at that very messy long URL, we want your domain pointing to it. In order to do that we have to change the DNS records. In my experience most domain registars lack advance DNS settings, in order to get round this problem we can use another of amazoms services, Route 53. It's practially free at $0.50 per hosted zone/month for the first 25 hosted zones.
+
+First go to Route 53 and create a hosted zone.
+</p>
+<div class="row">
+  <div class="small-6 large-centered columns bottom-margin">
+    <img src="{{ site.data.settings.base_url }}images/s3_hosting/step6.png" />
+  </div>
+</div>
+
+<p>
+Now in that zone we need to add a record set, click 'Goto record set' then 'Create record set'. You need to add 2 sets. The first is 
+</p>
+
+<div class="row">
+  <div class="small-6 large-centered columns bottom-margin">
+    <img src="{{ site.data.settings.base_url }}images/s3_hosting/step7.png" />
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-6 large-centered columns bottom-margin">
+    <img src="{{ site.data.settings.base_url }}images/s3_hosting/step8.png" />
+  </div>
+</div>

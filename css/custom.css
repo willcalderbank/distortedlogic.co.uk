@@ -1,0 +1,44 @@
+body {
+    background: grey;
+}
+
+button, .button {
+    background-color: #24AAE1;
+}
+
+button:hover, button:focus, .button:hover, .button:focus {
+    background-color: #007095;
+}
+
+#content {
+    background: white;
+    max-width: 68rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 0 1px;
+    border-style: solid;
+    border-color: #d8d8d8;
+    min-height: 100%;
+}
+
+
+.home-logo {
+    margin-top: 10rem;
+}
+
+.home-nav {
+    margin-bottom: 10rem;
+}
+
+.padding{
+    margin-top: 1.5rem;
+}
+
+.bottom-margin{
+    margin-bottom: 1rem;
+}
+
+.double-padding{
+    margin-top: 2rem;
+}

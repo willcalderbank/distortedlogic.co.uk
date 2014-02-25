@@ -1,0 +1,42 @@
+---
+layout: foundation
+---
+<div class="row padding">
+  <div class="large-8 columns">
+    <ul class="example-orbit" data-orbit>
+      {% for image in page.images %}
+        <li>
+          <img src="{{ image.url }}" alt="{{ image.caption }}" />
+          <div class="orbit-caption">
+            {{ image.caption }}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="large-4 columns">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div>
+
+{% if site.data.settings.enable_related_projects == true %}
+  <div class="row">
+    <hr>
+    <h3 class="padding">Related Projects</h3>
+    <ul class="small-block-grid-3 padding">
+      {% for project in site.categories.project limit:3%}
+        {% unless project.title == page.title %}
+          <li>
+            <img class="th" src="{{ project.url | remove_first: '/' }}">
+            <h4 class="text-center">{{ project.title }}</h4>
+          </li>
+        {% endunless %}
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

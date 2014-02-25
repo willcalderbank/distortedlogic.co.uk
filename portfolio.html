@@ -1,0 +1,16 @@
+---
+layout: foundation
+title: Portfolio
+---
+<div class="row">
+  <ul class="large-block-grid-4 double-padding">
+    {% for project in site.categories.project %}
+      <li>
+        <a href="{{ project.url | remove_first: '/' }}">
+          <img class="th" src="{{ project.image_thumb }}">
+          <p class="text-center">{{ project.title }}</p>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
