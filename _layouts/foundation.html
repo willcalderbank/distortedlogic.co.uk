@@ -6,18 +6,18 @@ layout: foundation-base
   <div class="large-12 columns">
     <div class="nav-bar right">
       <ul class="button-group">
-       <li><a href="{{ site.data.settings.base_url }}about.html" class="button">About</a></li>
+       <li><a href="{{ site.url }}/about.html" class="button">About</a></li>
         {% if site.categories.project | size > 1 %}
-          <li><a href="{{ site.data.settings.base_url }}portfolio.html" class="button">Portfolio</a></li>
+          <li><a href="{{ site.url }}/portfolio.html" class="button">Portfolio</a></li>
         {% endif %}
-        <li><a href="{{ site.data.settings.base_url }}blog.html" class="button">Blog</a></li>
+        <li><a href="{{ site.url }}/blog.html" class="button">Blog</a></li>
         <!-- <li><a href="mailto:will@distortedlogic.co.uk" class="button">Contact</a></li> -->
       </ul>
     </div>
 
     
-    <img src="{{ site.data.settings.base_url }}images/site/logo.png" style="width: 15rem; margin-bottom: -15px; display: inline-block;" />
-    <h1  style="margin-bottom: -15px; display: inline-block; vertical-align: bottom; padding-left: 10px;">{{ page.title }}</h1>
+    <a href="{{ site.url }}/"><img src="{{ site.url }}/images/site/logo.png" class="logo"/></a>
+    <h1 class="page-title">{{ page.title }}</h1>
     <hr />
   </div>
 </div>

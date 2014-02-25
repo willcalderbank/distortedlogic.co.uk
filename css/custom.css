@@ -22,16 +22,30 @@ button:hover, button:focus, .button:hover, .button:focus {
     min-height: 100%;
 }
 
+.logo {
+    width: 15rem;
+    margin-bottom: -15px;
+    display: inline-block;
+}
 
 .home-logo {
     margin-top: 10rem;
+    width: 440px;
 }
 
 .home-nav {
     margin-bottom: 10rem;
+    padding-left: 1rem;
 }
 
-.padding{
+.page-title {
+    margin-bottom: -15px;
+    display: inline-block;
+    vertical-align: bottom;
+    padding-left: 10px;
+}
+
+.top-margin{
     margin-top: 1.5rem;
 }
 
@@ -39,6 +53,6 @@ button:hover, button:focus, .button:hover, .button:focus {
     margin-bottom: 1rem;
 }
 
-.double-padding{
+.double-margin{
     margin-top: 2rem;
 }

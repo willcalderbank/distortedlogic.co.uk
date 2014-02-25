@@ -3,3 +3,7 @@ markdown: redcarpet
 pygments: true
 
 permalink: /:categories/:title.html
+
+url: http://distortedlogic.co.uk
+debug: False
+enable_related_projects: False

@@ -1,7 +1,7 @@
 ---
 layout: foundation
 ---
-<div class="row padding">
+<div class="row top-margin">
   <div class="large-8 columns">
     <ul class="example-orbit" data-orbit>
       {% for image in page.images %}
@@ -24,11 +24,11 @@ layout: foundation
   </div>
 </div>
 
-{% if site.data.settings.enable_related_projects == true %}
+{% if site.enable_related_projects == true %}
   <div class="row">
     <hr>
-    <h3 class="padding">Related Projects</h3>
-    <ul class="small-block-grid-3 padding">
+    <h3 class="top-margin">Related Projects</h3>
+    <ul class="small-block-grid-3 top-margin">
       {% for project in site.categories.project limit:3%}
         {% unless project.title == page.title %}
           <li>
