@@ -6,7 +6,7 @@ categories: blog
 truncate: 136
 ---
 <div class="row">
-  <div class="large-6 columns">
+  <div class="small-6 columns">
     <p>
       Finding the correct webhost to suit your needs is a nightmare, so many companies offering so many different plans at so many different prices. Honest reviews are hard to come by and often you find problems with the service after its to late.
     </p>
@@ -14,25 +14,25 @@ truncate: 136
       Many of the cheaper hosting providers offer plans at a very tempting price but the cheap price normally comes as a tradeoff with reliablity.
     </p>
   </div>
-  <div class="large-6 columns">
+  <div class="small-6 columns">
     <a class="th" href="http://aws.amazon.com/what-is-cloud-computing"><img src="http://awsmedia.s3.amazonaws.com/AWS_Logo_PoweredBy_300px.png" alt="Powered by AWS Cloud Computing" style="width: 400px;"></a>
   </div>
 </div>
 
 <p>
-  If your hosting a static site, with its inexpensive storage, "99.99%" durablty over a given year and performance amazons S3 it seems a little to good to be true. But really how expensive is it to host a static website on S3?
+  If your hosting a static site, with its inexpensive storage, "99.99%" durability over a given year and performance, Amazon's S3 seems a little to good to be true. But really how expensive is it to host a static website on S3?
 </p>
 
 <p>
-Lets do a little bit of <a href='http://en.wikipedia.org/wiki/Back-of-the-envelope_calculation'>back-of-the-envelope</a> math. According to <a href='https://developers.google.com/speed/articles/web-metrics'>google web metrics article</a> the average page on the internet is 320.24KB in size and triggers 44.56 GET request (which is some what surpises me). Call that 350KB and 50 GET requests per page. Lets assume that this is a small website say 50 pages with small visiter numbers say 1000 page views per month, because really if you where getting any more traffic you wouldnt be looking at budget hosting!
+Lets do a little bit of <a href='http://en.wikipedia.org/wiki/Back-of-the-envelope_calculation'>back-of-the-envelope</a> math. According to <a href='https://developers.google.com/speed/articles/web-metrics'>Google web metrics article</a> the average page on the internet is 320.24KB in size and triggers 44.56 GET request (which surprises me). Call that 350KB and 50 GET requests per page. Lets assume that this is a small website say 50 pages with small visitor numbers say 1000 page views per month, because really if you where getting any more traffic you wouldn't be looking at budget hosting!
 </p>
 
 <p>
-That page size above is the amount that sent 'over the wire', according to google the average uncompressed page size is 376.67KB  call that 400KB, with 50 pages thats 20MB. Just for fun say we are hosting a couple of photo albums or high res audio clips and really bump that up to 1GB (ok so we hosting a lot of images!). 
+That page size above is the amount that sent 'over the wire', according to google the average uncompressed page size is 376.67KB  call that 400KB, with 50 pages that's 20MB. Just for fun say we are hosting a couple of photo albums or high res audio clips and really bump that up to 1GB (ok so we hosting a lot of images!). 
 </p>
 
 <p>
-Ok, with approximatly 1000 page views per month with 50 GET request on each page and again just for fun say that each one of those images are downloaded 20 times each month. Thats 1GB of files with a bandwith of 20GB per month, with 50,000 get requests and we need to we need to encluded a host zone in route 53, because our domain provider doesnt provided advanced DNS controls. 
+Ok, with approximately 1000 page views per month with 50 GET request on each page and again just for fun say that each one of those images are downloaded 20 times each month. That's 1GB of files with a bandwidth of 20GB per month, with 50,000 get requests and we need to we need to included a host zone in route 53, because our domain provider doesn' t provided advanced DNS controls. 
 </p> 
 <p>
 
@@ -41,7 +41,7 @@ Now lets cost it up, im using <a href='http://calculator.s3.amazonaws.com/'>Amaz
 </p>
 
 <p>
-Compair this to a number of other budget hosting services, all services and prices where correct at the time of writting:
+Compare this to a number of other budget hosting services, all services and prices where correct at the time of writing:
 </p>
 
 <div class="large-8 large-centered columns">
@@ -96,9 +96,9 @@ Compair this to a number of other budget hosting services, all services and pric
 </div>
 
 <p>
-  Amazons S3 is much much cheaper, but this really isnt a fair comparison. As you can see from the table the budet hosting services sometimes offer 100 times the disk space and unlimited bandwidth, but in realitly its unlikely you would us all thats offered. The real advantage the hosting services provide is hosting of a database, something that is inpossible with S3. 
+  Amazons S3 is much much cheaper, but this really isn't a fair comparison. As you can see from the table the budget hosting services sometimes offer 100 times the disk space and unlimited bandwidth, but in reality its unlikely you would us all that's offered. The real advantage the hosting services provide is hosting of a database, something that is impossible with S3. 
 </p>
 
 <p>
-  In my opinion, if your going to host a static site then S3 is the way to go. Its cheaper, has 99.99999% durablity and has incredable performance.
+  In my opinion, if your going to host a static site then S3 is the way to go. Its cheaper, has 99.99999% durability and has incredible performance.
 </p>

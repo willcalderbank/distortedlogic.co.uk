@@ -1,9 +1,10 @@
-name: Your New Jekyll Site
+name: Distorted Logic
 markdown: redcarpet
 pygments: true
 
 permalink: /:categories/:title.html
 
 url: http://distortedlogic.co.uk
+# url: http://0.0.0.0:4000
 debug: False
 enable_related_projects: False
