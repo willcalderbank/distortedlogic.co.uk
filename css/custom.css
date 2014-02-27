@@ -1,5 +1,12 @@
 body {
-    background: grey;
+    background: #007095; /* Old browsers */
+    background: -moz-linear-gradient(top, #007095 0%, #24aae1 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#007095), color-stop(100%,#24aae1)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #007095 0%,#24aae1 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #007095 0%,#24aae1 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #007095 0%,#24aae1 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #007095 0%,#24aae1 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007095', endColorstr='#24aae1',GradientType=0 ); /* IE6-9 */
 }
 
 button, .button {
@@ -10,15 +17,25 @@ button:hover, button:focus, .button:hover, .button:focus {
     background-color: #007095;
 }
 
-#content {
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+#content, footer {
     background: white;
-    max-width: 68rem;
+    max-width: 68rem !important;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     border-width: 0 1px;
     border-style: solid;
     border-color: #d8d8d8;
+}
+
+#content {
     min-height: 100%
 }
 
@@ -39,6 +56,10 @@ button:hover, button:focus, .button:hover, .button:focus {
 
 .no-margin {
     margin: 0px;
+}
+
+.no-padding {
+    padding: 0px;
 }
 
 .page-title {
